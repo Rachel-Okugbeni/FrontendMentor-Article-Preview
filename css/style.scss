@@ -1,0 +1,182 @@
+// Global Variables & Imports
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap');
+$font-family: 'Manrope';
+//Colours 
+$primary-color: hsl(217, 19%, 35%);
+$secondary-color: hsl(214, 17%, 51%);
+$accent-color: hsl(212, 23%, 69%);
+$background-color: hsl(210, 46%, 95%);
+
+/* Global Styles */
+body {
+    font-family: $font-family, sans-serif;
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+    background-color: $background-color;
+    color: $primary-color;
+}
+
+#paragraph,
+#date {
+    font-weight: 500;
+    color: $secondary-color;
+}
+#name {
+    font-weight: 700;
+}
+
+/* Default Styling - Mobile */
+/* Main module */
+.flex-container {
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap:wrap;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    .drawers-img {
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+    }
+    .text,
+    .avatar-share-container {
+        padding: 0 20px;
+    }
+    .content {
+        padding-top: 20px;
+    }
+}
+
+/* Bottom section - Avatar, Name, Date Share Button */
+/* Default state - changes to none when share button clicked */
+.avatar-share-container {
+    display: flex;
+}
+
+.avatar-share-container,
+.social-links {
+    align-items: center;
+    position: relative;
+}
+
+.avatar-img {
+    width: 10vw;
+    border-radius: 50%;
+    margin: 5px;
+    margin-right: 10px;
+}
+
+.share-btn {
+    border-radius: 50%;
+    border: 1px solid transparent;
+    height: 30px;
+    width: 30px;
+    border: 1px solid transparent;
+    position: absolute;
+    right: 15px;
+    i {
+        color: $secondary-color;
+    }
+    &:hover {
+        background-color: $secondary-color;
+        cursor: pointer;
+        i {
+            color: $background-color;
+        }
+    }
+}
+
+/* Module opens on share button click - social media links */
+.social-links {
+    display: none;
+    background-color: $primary-color;
+    color: $accent-color;
+    border-radius: 0 0 10px 10px;
+    padding: 0 0 0 30px;
+    i {
+        color: hsl(0, 0%, 100%);
+        margin: 0 0px;
+        line-height: 45px;
+        margin: 0 5px;
+    }
+}
+.share-btn-active {
+    border-radius: 50%;
+    border: 1px solid transparent;
+    height: 30px;
+    width: 30px;
+    border: 1px solid transparent;
+    position: absolute;
+    right: 15px;
+    background-color: $accent-color;
+    i {
+        color: hsl(0, 0%, 100%);
+        position: relative;
+        bottom: 10px;
+        right: 5px;
+    }
+}
+
+/*Desktop Styling */
+@media only screen and (min-width: 1024px) {
+    body {
+        font-size: 1.1rem;
+    }
+    .flex-container {
+        width: 46vw;
+        .drawers-img {
+            width: 20vw;
+            border-radius: 10px 0 0 10px;
+        }
+    }
+    .content {
+        width: 26vw; 
+        height: 30vh;
+        .avatar-img {
+            width: 40px;
+        }   
+    }
+    .share-btn {
+        margin-left: 15vw;
+        width: 50px;
+        height: 50px;
+    }
+    .share-btn-active {
+        display: none;
+    }
+    .social-links {
+        width: 10vw;
+        border: 1px solid transparent;
+        justify-content: center;
+        position: relative;
+        left: 350px;
+        bottom: 130px;
+        border-radius: 10px;
+        padding: 0;
+        box-shadow: 5px 5px 10px;
+        .share-txt {
+            margin-right: 10px;
+            font-size: 13px;
+            line-height: 22px;
+        }
+        i {
+            margin: 0 0px;
+            line-height: 45px;
+            margin: 0 5px;
+        }
+    }
+    .social-links::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 45%;
+        border-top: 10px solid transparent;
+        border-top-color: $primary-color; 
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;    
+    }
+}
